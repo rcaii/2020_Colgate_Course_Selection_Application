@@ -1,0 +1,159 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Course
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-icon
+        name="information-circle"
+        style="font-size: 30px;"
+        (click)="showModal()"
+      ></ion-icon>
+      <ion-title size="large" style="text-align: center;">Course</ion-title>
+      <ion-icon 
+        name="search"
+        style="float:right; font-size: 30px;"
+        (click)="showSearch()"
+      ></ion-icon>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-searchbar 
+    (ionInput)="getItems($event)"
+    (ionClear)="onClear($event)"
+    *ngIf="isShowSearch"
+  >
+  </ion-searchbar>
+  <ion-list>
+    <ion-item 
+    *ngFor="let item of items"
+    (click)="redirectTo(item)"
+    >
+    <ion-icon
+      style="margin-right: 5px; color:#820f19;"
+      name="book"
+    ></ion-icon>
+    {{ item.DISPLAY_KEY }} : {{item.TITLE}} -
+    {{ item.INSTRUCTOR1_NAME }}
+    </ion-item>
+  </ion-list>
+
+
+  <nzm-whitespace></nzm-whitespace>
+
+  <Accordion [accordion]="false">
+    <AccordionPanel
+      [key]="i"
+      *ngFor="let major of majors;let i = index"
+      [header]="major.AREA_DESC"
+      (click)="searchCourseByMajor(major.AREA_CODE)"
+    >
+      <List className="my-list">
+        <ListItem>
+          <nzm-whitespace></nzm-whitespace>
+          <WingBlank [size]="'lg'">
+            <ion-card
+              class="bg-color"
+              *ngFor="let course of courses"
+              (click)="redirectTo(course)"
+            >
+              <ion-card-header>
+                <ion-icon
+                  style="margin-right: 10px; color: white;"
+                  name="book"
+                ></ion-icon>
+                <div>
+                  <span style="color: white;">{{course.DISPLAY_KEY}}</span>
+                </div>
+                <div>
+                  <span style="color: white;">{{course.TITLE}}</span>
+                </div>
+              </ion-card-header>
+              <ion-card-content>
+                <div style="color: white;">
+                  <div style="display: inline-block;">
+                    <ion-icon name="school"></ion-icon>
+                    <span style="margin-left: 10px;">
+                      {{course.INSTRUCTOR1_NAME}}
+                    </span>
+                  </div>
+                  <!-- <div style="float: right;">
+                    <span style="margin: 0 10px;">forward</span>
+                    <ion-icon name="arrow-forward"></ion-icon>
+                  </div> -->
+                  <div style="float: right;">
+                    <ion-icon name="people"></ion-icon>
+                    <span style="margin-left: 10px;">{{course.SEATS}}</span>
+                  </div>
+                </div>
+              </ion-card-content>
+            </ion-card>
+          </WingBlank>
+        </ListItem>
+      </List>
+    </AccordionPanel>
+  </Accordion>
+</ion-content>
+
+<!-- <ng-template #footerExtra>
+  <div
+    Button
+    style="margin-right: 4px;"
+    [type]="'ghost'"
+    [inline]="true"
+    [size]="'small'"
+    (onClick)="showModal('modal2')"
+  >
+    Subscribe
+  </div>
+</ng-template> -->
+
+<!-- <ng-template #footerExtra>
+  <div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="showModal2('modal2')">Add to Wish</div>
+</ng-template> -->
+
+<!-- <ng-template #footer>
+  <div
+    Button
+    style="margin-right: 4px;"
+    [type]="'ghost'"
+    [inline]="true"
+    [size]="'small'"
+    (onClick)="showPromptDefault()"
+  >
+    Review
+  </div>
+</ng-template> -->
+
+<ng-template #book>
+  <ion-icon style="margin-right: 10px;" name="book"></ion-icon>
+</ng-template>
+
+<ng-template #redirect>
+  <div Button [type]="'primary'" (click)="redirectTo(major.AREA_CODE)">
+    Confirm
+  </div>
+</ng-template>
+
+<Modal
+  [(ngModel)]="this.popup"
+  [transparent]="true"
+  [popup]="true"
+  (onClose)="onClose()"
+>
+  <div>
+    <span>Richard Cai</span>
+  </div>
+
+  <div>
+    <span>rcai@colgate.edu</span>
+  </div>
+</Modal>
+
+
+

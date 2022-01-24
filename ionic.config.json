@@ -1,0 +1,7 @@
+{
+  "name": "ElectiveUp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

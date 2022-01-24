@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Wishlist
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large" style="text-align: center;"
+        >Wishlist</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <nzm-whitespace></nzm-whitespace>
+  <WingBlank [size]="'lg'">
+    <ion-card
+      class="bg-color"
+      *ngFor="let course of allCourse"
+      (click)="redirectTo(course)"
+    >
+    <ion-card-header>
+      <ion-icon
+        style="margin-right: 10px; color: white;"
+        name="book"
+      ></ion-icon>
+      <div>
+        <span style="color: white;">{{course.DISPLAY_KEY}}</span>
+      </div>
+      <div>
+        <span style="color: white;">{{course.TITLE}}</span>
+      </div>
+    </ion-card-header>
+
+     <ion-card-content>
+        <div style="color: white;">
+          <div style="display: inline-block;">
+            <ion-icon name="school"></ion-icon>
+              <span style="margin-left: 10px;">
+                      {{course.INSTRUCTOR1_NAME}}
+              </span>
+            </div>
+        <div style="float: right;">
+          <ion-icon name="people"></ion-icon>
+            <span style="margin-left: 10px;">{{course.SEATS}}</span>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </WingBlank>
+</ion-content>

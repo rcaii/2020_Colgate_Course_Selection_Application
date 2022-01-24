@@ -1,0 +1,96 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- <button (click)="goBack()">
+      back
+    </button> -->
+    <ion-icon
+      (click)="goBack()"
+      style="font-size: 25px; color: #820f19;"
+      name="backspace"
+    ></ion-icon>
+    <ion-title>
+      Details
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="backgroud" [fullscreen]="true">
+  <nzm-whitespace></nzm-whitespace>
+  <div style="padding: 10px; border-bottom: solid 1px;">
+    <h1>{{detail.DISPLAY_KEY}}</h1>
+    <h2>{{detail.TITLE}}</h2>
+    <span>{{detail.MEET1_DAYS}} {{detail.MEET1_BEGIN_TIME12}} - {{detail.MEET1_END_TIME12}}</span>
+  </div>
+
+  <div style="padding: 10px; border-bottom: solid 1px;">
+    <div><span class="title">Term:</span><span>{{detail.TERM_DESC}}</span></div>
+    <div><span class="title">CRN: </span><span>{{detail.CRN}}</span></div>
+    <div>
+      <span class="title">
+        instructor:
+      </span>
+      <span>{{detail.INSTRUCTOR1_NAME}}</span>
+    </div>
+    <div>
+      <span class="title">Room: </span><span>{{detail.MEET1_LOCATION}}</span>
+    </div>
+    <div>
+      <span class="title">Credits: </span><span>{{detail.CREDIT_HRS}}</span>
+    </div>
+    <div>
+      <span class="title">
+        Restrictions:
+      </span>
+      <span>{{detail.CLASS_YEAR_RESTRICTIONS}}</span>
+    </div>
+    <div>
+      <span class="title">
+        Count Towards:
+      </span>
+      <span>{{detail.COUNT_TOWARDS_DESCRIPTIONS}}</span>
+    </div>
+  </div>
+
+  <div style="padding: 10px; border-bottom: solid 1px;">
+    <p class="title">DESCRIPTION:</p>
+    <span>{{detail.DESCRIPTION}}</span>
+  </div>
+
+  <div style="padding: 10px; display: flex;">
+    <div style="width: 45%; display: inline-block;">
+      <p class="title">CORE AREA:</p>
+      <span>
+        {{ detail.CORE_AREA ? detail.CORE_AREA: "Does not satisfy the CORE
+        requirement" }}
+      </span>
+    </div>
+    <div style="width: 45%; display: inline-block;">
+      <p class="title">AREA OF INQUIRY:</p>
+      <span>{{detail.INQUIRY_AREA?detail.INQUIRY_AREA:"Does not satisfy the 
+        areas of inquiry requirement "}}</span>
+    </div>
+  </div>
+
+  <div>
+    <div
+      Button
+      style="margin: 10px; float: left;"
+      [type]="'ghost'"
+      [inline]="true"
+      [size]="'small'"
+      (onClick)="saveData()"
+    >
+      Add
+    </div>
+    <div
+      Button
+      style="margin: 10px; float: right;"
+      [type]="'ghost'"
+      [inline]="true"
+      [size]="'small'"
+      (onClick)="remove()"
+    >
+      Remove
+    </div>
+  </div>
+</ion-content>

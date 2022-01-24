@@ -1,0 +1,359 @@
+<ng-template #footerExtra>
+  <div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="showModal('modal2')">Subscribe</div>
+</ng-template>
+
+<!-- <ng-template #footerExtra>
+  <div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="showModal2('modal2')">Add to Wish</div>
+</ng-template> -->
+
+<ng-template #footer>
+  <div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="showPromptDefault()">Review</div>
+</ng-template>
+
+<ng-template #sidebar>
+  <List>
+    <ListItem [multipleLine]="true" [thumb]="'https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png'">
+      Category
+    </ListItem>
+    <ListItem
+      *ngFor="let num of this.nums; let i = index"
+      [thumb]="'https://zos.alipayobjects.com/rmsportal/eOZidTabPoEbPeU.png'"
+    >
+      Category{{ i + 1 }}
+    </ListItem>
+  </List>
+</ng-template>
+
+<Modal [(ngModel)]="this.popup" [popup]="true" [animationType]="'slide-up'" (onClose)="onClose()">
+  <List [renderHeader]="renderHeader" [className]="'popup-list'">
+    <ListItem>Username: admin</ListItem>
+    <ListItem> <div Button [type]="'primary'" (onClick)="showAlert()">Confirm</div> </ListItem>
+  </List>
+</Modal>
+
+<Modal [(ngModel)]="this.popup2" [popup]="true" [animationType]="'slide-up'" (onClose)="onClose()">
+  <List [renderHeader]="renderHeader" [className]="'popup-list'">
+    <ListItem>Username: admin</ListItem>
+    <ListItem> <div Button [type]="'primary'" (onClick)="showAlert2()">Confirm</div> </ListItem>
+  </List>
+</Modal>
+
+<div>
+  <Drawer
+    class="my-drawer"
+    [ngStyle]="{ minHeight: this.height + 'px' }"
+    [contentStyle]="{ color: '#A6A6A6', textAlign: 'center', paddingTop: '42px' }"
+    [enableDragHandle]="true"
+    [sidebar]="sidebar"
+    [open]="this.state.open"
+    (onOpenChange)="onOpenChange($event)"
+  >
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>
+        Course
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Course</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+    <nzm-whitespace></nzm-whitespace>
+  
+    <Accordion [accordion]="true">
+      <AccordionPanel
+        [key]="1"
+        [header]="'Physics'"
+      >
+        <List className="my-list">
+          <ListItem>
+            <nzm-whitespace></nzm-whitespace>
+            <WingBlank [size]="'lg'">
+              <Card>
+                <CardHeader
+                  [title]="'Course title'"
+                  [extra]="extra"
+                  [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                  [thumbStyle]="thumbStyle"
+                >
+          
+                </CardHeader>
+                <CardBody>
+                  <div>Course introduction</div>
+                  <div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="onOpenChange()">Detail</div>
+                </CardBody>
+                <CardFooter [content]="footer" [extra]="footerExtra">
+  
+                </CardFooter>
+              </Card>
+            </WingBlank>
+          </ListItem>
+          <ListItem>
+            <nzm-whitespace></nzm-whitespace>
+            <WingBlank [size]="'lg'">
+              <Card>
+                <CardHeader
+                  [title]="'Course title'"
+                  [extra]="extra"
+                  [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                  [thumbStyle]="thumbStyle"
+                >
+          
+                </CardHeader>
+                <CardBody>
+                  <div>Course introduction</div>
+<div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="onOpenChange()">Detail</div>
+                </CardBody>
+                <CardFooter [content]="footer" [extra]="footerExtra">
+  
+                </CardFooter>
+              </Card>
+            </WingBlank>
+          </ListItem>
+          <ListItem>
+            <nzm-whitespace></nzm-whitespace>
+            <WingBlank [size]="'lg'">
+              <Card>
+                <CardHeader
+                  [title]="'Course title'"
+                  [extra]="extra"
+                  [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                  [thumbStyle]="thumbStyle"
+                >
+          
+                </CardHeader>
+                <CardBody>
+                  <div>Course introduction</div>
+<div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="onOpenChange()">Detail</div>
+                </CardBody>
+                <CardFooter [content]="footer" [extra]="footerExtra">
+  
+                </CardFooter>
+              </Card>
+            </WingBlank>
+          </ListItem>
+          <ListItem>
+            <nzm-whitespace></nzm-whitespace>
+            <WingBlank [size]="'lg'">
+              <Card>
+                <CardHeader
+                  [title]="'Course title'"
+                  [extra]="extra"
+                  [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                  [thumbStyle]="thumbStyle"
+                >
+          
+                </CardHeader>
+                <CardBody>
+                  <div>Course introduction</div>
+<div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="onOpenChange()">Detail</div>
+                </CardBody>
+                <CardFooter [content]="footer" [extra]="footerExtra">
+  
+                </CardFooter>
+              </Card>
+            </WingBlank>
+          </ListItem>
+        </List>
+      </AccordionPanel>
+    </Accordion>
+    <Accordion [accordion]="true">
+      <AccordionPanel
+        [key]="2"
+        [header]="'Economics'"
+      >
+        <List className="my-list">
+          <ListItem>
+            <nzm-whitespace></nzm-whitespace>
+            <WingBlank [size]="'lg'">
+              <Card>
+                <CardHeader
+                  [title]="'Course title'"
+                  [extra]="extra"
+                  [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                  [thumbStyle]="thumbStyle"
+                >
+          
+                </CardHeader>
+                <CardBody>
+                  <div>Course introduction</div>
+<div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="onOpenChange()">Detail</div>
+                </CardBody>
+                <CardFooter [content]="footer" [extra]="footerExtra">
+  
+                </CardFooter>
+              </Card>
+            </WingBlank>
+          </ListItem>
+          <ListItem>
+            <nzm-whitespace></nzm-whitespace>
+            <WingBlank [size]="'lg'">
+              <Card>
+                <CardHeader
+                  [title]="'Course title'"
+                  [extra]="extra"
+                  [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                  [thumbStyle]="thumbStyle"
+                >
+          
+                </CardHeader>
+                <CardBody>
+                  <div>Course introduction</div>
+<div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="onOpenChange()">Detail</div>
+                </CardBody>
+                <CardFooter [content]="footer" [extra]="footerExtra">
+  
+                </CardFooter>
+              </Card>
+            </WingBlank>
+          </ListItem>
+          <ListItem>
+            <nzm-whitespace></nzm-whitespace>
+            <WingBlank [size]="'lg'">
+              <Card>
+                <CardHeader
+                  [title]="'Course title'"
+                  [extra]="extra"
+                  [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                  [thumbStyle]="thumbStyle"
+                >
+          
+                </CardHeader>
+                <CardBody>
+                  <div>Course introduction</div>
+<div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="onOpenChange()">Detail</div>
+                </CardBody>
+                <CardFooter [content]="footer" [extra]="footerExtra">
+  
+                </CardFooter>
+              </Card>
+            </WingBlank>
+          </ListItem>
+          <ListItem>
+            <nzm-whitespace></nzm-whitespace>
+            <WingBlank [size]="'lg'">
+              <Card>
+                <CardHeader
+                  [title]="'Course title'"
+                  [extra]="extra"
+                  [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                  [thumbStyle]="thumbStyle"
+                >
+          
+                </CardHeader>
+                <CardBody>
+                  <div>Course introduction</div>
+<div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="onOpenChange()">Detail</div>
+                </CardBody>
+                <CardFooter [content]="footer" [extra]="footerExtra">
+  
+                </CardFooter>
+              </Card>
+            </WingBlank>
+          </ListItem>
+        </List>
+      </AccordionPanel>
+    </Accordion>
+    <Accordion [accordion]="true" [activeKey]="[0]">
+      <AccordionPanel
+        [key]="3"
+        [header]="'History'"
+      >
+        <List className="my-list">
+          <ListItem>
+            <nzm-whitespace></nzm-whitespace>
+            <WingBlank [size]="'lg'">
+              <Card>
+                <CardHeader
+                  [title]="'Course title'"
+                  [extra]="extra"
+                  [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                  [thumbStyle]="thumbStyle"
+                >
+          
+                </CardHeader>
+                <CardBody>
+                  <div (onClick)="onOpenChange()()">Course introduction</div>
+                </CardBody>
+                <CardFooter [content]="footer" [extra]="footerExtra">
+  
+                </CardFooter>
+              </Card>
+            </WingBlank>
+          </ListItem>
+          <ListItem>
+            <nzm-whitespace></nzm-whitespace>
+            <WingBlank [size]="'lg'">
+              <Card>
+                <CardHeader
+                  [title]="'Course title'"
+                  [extra]="extra"
+                  [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                  [thumbStyle]="thumbStyle"
+                >
+          
+                </CardHeader>
+                <CardBody>
+                  <div>Course introduction</div>
+<div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="onOpenChange()">Detail</div>
+                </CardBody>
+                <CardFooter [content]="footer" [extra]="footerExtra">
+  
+                </CardFooter>
+              </Card>
+            </WingBlank>
+          </ListItem>
+          <ListItem>
+            <nzm-whitespace></nzm-whitespace>
+            <WingBlank [size]="'lg'">
+              <Card>
+                <CardHeader
+                  [title]="'Course title'"
+                  [extra]="extra"
+                  [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                  [thumbStyle]="thumbStyle"
+                >
+          
+                </CardHeader>
+                <CardBody>
+                  <div>Course introduction</div>
+<div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="onOpenChange()">Detail</div>
+                </CardBody>
+                <CardFooter [content]="footer" [extra]="footerExtra">
+  
+                </CardFooter>
+              </Card>
+            </WingBlank>
+          </ListItem>
+          <ListItem>
+            <nzm-whitespace></nzm-whitespace>
+            <WingBlank [size]="'lg'">
+              <Card>
+                <CardHeader
+                  [title]="'Course title'"
+                  [extra]="extra"
+                  [thumb]="'https://gw.alipayobjects.com/zos/rmsportal/MRhHctKOineMbKAZslML.jpg'"
+                  [thumbStyle]="thumbStyle"
+                >
+          
+                </CardHeader>
+                <CardBody>
+                  <div>Course introduction</div>
+<div Button style="margin-right: 4px" [type]="'ghost'" [inline]="true" [size]="'small'" (onClick)="onOpenChange()">Detail</div>
+                </CardBody>
+                <CardFooter [content]="footer" [extra]="footerExtra">
+                </CardFooter>
+              </Card>
+            </WingBlank>
+          </ListItem>
+        </List>
+      </AccordionPanel>
+    </Accordion>
+  </ion-content>
+  </Drawer>
+</div>
